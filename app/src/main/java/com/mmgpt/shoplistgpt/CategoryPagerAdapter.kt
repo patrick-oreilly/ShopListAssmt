@@ -12,8 +12,10 @@ class CategoryPagerAdapter(
     private val viewModel: ShoppingListViewModel,
     private val planMode: Boolean = false
 ) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int =
-        (viewModel.categories.value?.size ?: 0) + 1
+
+    private fun categoryCount(): Int = viewModel.categories.value?.size ?: 0
+
+    override fun getItemCount(): Int = categoryCount() + 1
 
     override fun createFragment(position: Int): Fragment =
         if (planMode) {
@@ -23,11 +25,36 @@ class CategoryPagerAdapter(
                 PlanCategoryFragment.newInstance(position - 1)
             }
         } else {
-            val size = viewModel.categories.value?.size ?: 0
-            if (position == size) {
+            if (position == categoryCount()) {
                 ShopCategoriesFragment()
             } else {
                 CategoryFragment.newInstance(position)
             }
         }
+
+    // FragmentStateAdapter reuses a page's fragment while its item ID is unchanged.
+    // The default ID is the position, but in Shop mode the summary page's position
+    // moves when the category count changes, so a stale summary fragment could stay
+    // at a position that should now show a category. IDs must reflect page content.
+    override fun getItemId(position: Int): Long = pageId(position, categoryCount(), planMode)
+
+    override fun containsItem(itemId: Long): Boolean =
+        isValidPageId(itemId, categoryCount(), planMode)
+
+    companion object {
+        const val SUMMARY_PAGE_ID = -1L
+
+        fun pageId(position: Int, categoryCount: Int, planMode: Boolean): Long {
+            val summaryPosition = if (planMode) 0 else categoryCount
+            return if (position == summaryPosition) {
+                SUMMARY_PAGE_ID
+            } else {
+                // ID is the category index shown on this page
+                (if (planMode) position - 1 else position).toLong()
+            }
+        }
+
+        fun isValidPageId(itemId: Long, categoryCount: Int, planMode: Boolean): Boolean =
+            itemId == SUMMARY_PAGE_ID || itemId in 0 until categoryCount
+    }
 }
