@@ -84,7 +84,10 @@ class PlanCategoryFragment : Fragment() {
         viewModel.categories.observe(viewLifecycleOwner) { list ->
             val cat = list.getOrNull(index)
             if (cat != null) {
-                binding.tvHeading.text = cat.heading
+                val title = CategoryTitle.parse(cat.heading)
+                binding.tvNumber.text = title.number
+                binding.tvNumber.visibility = if (title.number != null) View.VISIBLE else View.GONE
+                binding.tvHeading.text = title.name
                 binding.tvCount.text = ""
 
                 val allChecked = cat.items.filterNot { it.isHeading }.all { it.isChecked }

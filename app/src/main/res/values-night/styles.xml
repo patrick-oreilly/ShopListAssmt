@@ -1,11 +1,24 @@
 <resources>
     <style name="Theme.ShopListGPT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/green_500</item>
-        <item name="colorPrimaryVariant">@color/green_700</item>
-        <item name="colorSecondary">@color/light_blue_500</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSurface">@color/white</item>
+        <item name="colorPrimary">@color/moss</item>
+        <item name="colorPrimaryVariant">@color/moss</item>
+        <item name="colorOnPrimary">@color/on_moss</item>
+        <item name="colorSecondary">@color/moss</item>
+        <item name="colorOnSecondary">@color/on_moss</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="android:colorBackground">@color/paper</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+        <item name="android:textColorHint">@color/muted</item>
+        <item name="android:fontFamily">@font/hanken_grotesk</item>
+        <item name="materialButtonStyle">@style/Widget.ShopList.Button</item>
+        <item name="toolbarStyle">@style/Widget.ShopList.Toolbar</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 </resources>

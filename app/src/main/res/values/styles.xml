@@ -1,11 +1,79 @@
 <resources>
     <style name="Theme.ShopListGPT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/green_500</item>
-        <item name="colorPrimaryVariant">@color/green_700</item>
-        <item name="colorSecondary">@color/light_blue_500</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSurface">@color/black</item>
+        <item name="colorPrimary">@color/moss</item>
+        <item name="colorPrimaryVariant">@color/moss</item>
+        <item name="colorOnPrimary">@color/on_moss</item>
+        <item name="colorSecondary">@color/moss</item>
+        <item name="colorOnSecondary">@color/on_moss</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="android:colorBackground">@color/paper</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+        <item name="android:textColorHint">@color/muted</item>
+        <item name="android:fontFamily">@font/hanken_grotesk</item>
+        <item name="materialButtonStyle">@style/Widget.ShopList.Button</item>
+        <item name="toolbarStyle">@style/Widget.ShopList.Toolbar</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Widget.ShopList.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/hanken_grotesk_medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Widget.ShopList.Button.Quiet" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/hanken_grotesk_medium</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Widget.ShopList.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/paper</item>
+        <item name="titleTextAppearance">@style/TextAppearance.ShopList.ToolbarTitle</item>
+        <item name="titleTextColor">@color/ink</item>
+    </style>
+
+    <style name="TextAppearance.ShopList.ToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/bodoni_moda_medium</item>
+        <item name="fontFamily">@font/bodoni_moda_medium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <!-- Aisle numeral: the one place brass and the display face meet -->
+    <style name="TextAppearance.ShopList.Numeral" parent="">
+        <item name="android:fontFamily">@font/bodoni_moda_medium</item>
+        <item name="android:textColor">@color/brass</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.ShopList.Display" parent="">
+        <item name="android:fontFamily">@font/bodoni_moda_medium</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Small tracked caps for labels that name a section -->
+    <style name="TextAppearance.ShopList.Eyebrow" parent="">
+        <item name="android:fontFamily">@font/hanken_grotesk_semibold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.14</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/muted</item>
+    </style>
+
+    <style name="TextAppearance.ShopList.Figure" parent="">
+        <item name="android:fontFamily">@font/hanken_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+        <item name="android:textColor">@color/muted</item>
     </style>
 </resources>

@@ -1,3 +1,4 @@
 <resources>
-    <dimen name="item_border_width">2dp</dimen>
+    <dimen name="item_border_width">1dp</dimen>
+    <dimen name="gutter">16dp</dimen>
 </resources>

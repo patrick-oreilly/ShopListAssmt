@@ -47,8 +47,11 @@ class CategoryFragment : Fragment() {
         viewModel.categories.observe(viewLifecycleOwner) { list ->
             val cat = list.getOrNull(index)
             if (cat != null) {
-                binding.tvHeading.text = cat.heading
-                binding.tvCount.text = "${cat.remainingCount}/${cat.totalCount}"
+                val title = CategoryTitle.parse(cat.heading)
+                binding.tvNumber.text = title.number
+                binding.tvNumber.visibility = if (title.number != null) View.VISIBLE else View.GONE
+                binding.tvHeading.text = title.name
+                binding.tvCount.text = getString(R.string.count_of_total, cat.remainingCount, cat.totalCount)
                 adapter.submitList(cat.items)
             }
         }

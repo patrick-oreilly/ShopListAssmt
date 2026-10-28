@@ -325,7 +325,8 @@ class MainActivity : AppCompatActivity() {
         // control visibility.
         binding.startPage.root.visibility = View.VISIBLE
         binding.viewPager.visibility = View.GONE
-        supportActionBar?.title = getString(R.string.app_name)
+        // The start page carries its own wordmark
+        supportActionBar?.title = ""
         if (inPlanMode) {
             val updated = viewModel.categories.value?.map { cat ->
                 cat.copy(items = cat.items.map { it.copy(isStruck = it.isChecked) })

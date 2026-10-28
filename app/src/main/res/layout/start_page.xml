@@ -3,48 +3,224 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingStart="@dimen/gutter"
+    android:paddingEnd="@dimen/gutter"
+    android:paddingBottom="12dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnShop"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/shop"
-        app:icon="@drawable/ic_shopping_cart_24"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"/>
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:baselineAligned="true"
+        android:contentDescription="@string/app_name"
+        android:orientation="horizontal">
 
-    <com.google.android.material.button.MaterialButton
+        <TextView
+            style="@style/TextAppearance.ShopList.Display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:text="@string/shop"
+            android:textSize="58sp" />
+
+        <TextView
+            style="@style/TextAppearance.ShopList.Numeral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:importantForAccessibility="no"
+            android:text="+"
+            android:textSize="58sp" />
+
+        <TextView
+            style="@style/TextAppearance.ShopList.Display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:text="@string/plan"
+            android:textSize="58sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/start_intro"
+        android:textColor="@color/muted"
+        android:textSize="17sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnPlan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/plan"
-        app:icon="@drawable/ic_event_24"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"/>
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/plan_title"
+        app:cardBackgroundColor="@color/surface"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/mist"
+        app:strokeWidth="1dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnImport"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/plan_eyebrow"
+                    style="@style/TextAppearance.ShopList.Eyebrow"
+                    android:textColor="@color/muted"
+                    android:alpha="0.85" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/plan_title"
+                    style="@style/TextAppearance.ShopList.Display"
+                    android:textColor="@color/ink"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/plan_body"
+                    android:textColor="@color/muted"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_arrow_forward_24"
+                app:tint="@color/ink" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnShop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/import_button"
-        app:icon="@drawable/ic_file_upload_24"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"/>
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/shop_title"
+        app:cardBackgroundColor="@color/moss"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/mist"
+        app:strokeWidth="0dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnExport"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shop_eyebrow"
+                    style="@style/TextAppearance.ShopList.Eyebrow"
+                    android:textColor="@color/on_moss"
+                    android:alpha="0.85" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/shop_title"
+                    style="@style/TextAppearance.ShopList.Display"
+                    android:textColor="@color/on_moss"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/shop_body"
+                    android:textColor="@color/on_moss"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_arrow_forward_24"
+                app:tint="@color/on_moss" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/export"
-        app:icon="@drawable/ic_file_download_24"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"/>
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImport"
+            style="@style/Widget.ShopList.Button.Quiet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/import_button"
+            app:icon="@drawable/ic_file_upload_24"
+            app:iconTint="@color/muted" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/mist" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExport"
+            style="@style/Widget.ShopList.Button.Quiet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/export"
+            app:icon="@drawable/ic_file_download_24"
+            app:iconTint="@color/muted" />
+    </LinearLayout>
 
 </LinearLayout>

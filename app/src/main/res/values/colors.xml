@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<color name="green_500">#4CAF50</color>
-<color name="green_700">#388E3C</color>
-<color name="light_blue_500">#03A9F4</color>
-<color name="black">#000000</color>
-<color name="white">#FFFFFF</color>
-<color name="list_item_text">#000000</color>
-<color name="struck_text">#808080</color>
-<color name="need_buy_bg">#E8F5E9</color>
-<color name="need_buy_border">#A5D6A7</color>
-<color name="have_home_bg">#E3F2FD</color>
-<color name="have_home_border">#81D4FA</color>
+    <!-- Palette: a fine grocer's list. Cool paper, bottle-green ink, one brass accent. -->
+    <color name="paper">#F2F4F1</color>
+    <color name="surface">#FCFDFB</color>
+    <color name="ink">#15221C</color>
+    <color name="moss">#2E4A3B</color>
+    <color name="on_moss">#F2F4F1</color>
+    <color name="brass">#9A7642</color>
+    <color name="mist">#DDE4DF</color>
+    <color name="muted">#66756D</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Row roles used by the adapters -->
+    <color name="list_item_text">@color/ink</color>
+    <color name="struck_text">@color/muted</color>
+    <color name="need_buy_bg">@color/surface</color>
+    <color name="need_buy_border">@color/mist</color>
+    <color name="have_home_bg">#E8EDE9</color>
+    <color name="have_home_border">#E8EDE9</color>
 </resources>

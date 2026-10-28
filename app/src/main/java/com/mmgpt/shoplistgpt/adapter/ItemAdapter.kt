@@ -3,9 +3,9 @@ package com.mmgpt.shoplistgpt.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.graphics.Typeface
 import android.graphics.Paint
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -99,14 +99,16 @@ class ItemAdapter(
             if (item.isHeading) {
                 binding.chkPurchased.isEnabled = false
                 binding.btnFlag.isEnabled = false
-                binding.tvName.setTypeface(null, Typeface.BOLD)
+                binding.tvName.typeface = ResourcesCompat.getFont(binding.root.context, com.mmgpt.shoplistgpt.R.font.hanken_grotesk_semibold)
                 val color = ContextCompat.getColor(binding.root.context, com.mmgpt.shoplistgpt.R.color.list_item_text)
                 binding.tvName.setTextColor(color)
-                binding.root.strokeWidth = 0
+                binding.root.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, com.mmgpt.shoplistgpt.R.color.need_buy_bg))
+                binding.root.strokeColor = ContextCompat.getColor(binding.root.context, com.mmgpt.shoplistgpt.R.color.need_buy_border)
+                binding.root.strokeWidth = binding.root.context.resources.getDimensionPixelSize(com.mmgpt.shoplistgpt.R.dimen.item_border_width)
             } else {
                 binding.chkPurchased.isEnabled = true
                 binding.btnFlag.isEnabled = mode == Mode.SHOP
-                binding.tvName.setTypeface(null, Typeface.NORMAL)
+                binding.tvName.typeface = ResourcesCompat.getFont(binding.root.context, com.mmgpt.shoplistgpt.R.font.hanken_grotesk)
                 val color = ContextCompat.getColor(binding.root.context, com.mmgpt.shoplistgpt.R.color.list_item_text)
                 binding.tvName.setTextColor(color)
 

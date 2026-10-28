@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mmgpt.shoplistgpt.CategoryTitle
+import com.mmgpt.shoplistgpt.R
 import com.mmgpt.shoplistgpt.ShoppingCategory
 import com.mmgpt.shoplistgpt.databinding.ItemCategorySummaryBinding
 
@@ -27,9 +29,18 @@ class CategorySummaryAdapter : ListAdapter<ShoppingCategory, CategorySummaryAdap
 
     class ViewHolder(private val binding: ItemCategorySummaryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(category: ShoppingCategory) {
-            binding.tvName.text = category.heading
-            binding.tvCount.text = "${category.remainingCount}/${category.totalCount}"
+            val title = CategoryTitle.parse(category.heading)
+            binding.tvNumber.text = title.number
+            binding.tvName.text = title.name
+            val context = binding.root.context
+            binding.tvCount.text = context.getString(
+                R.string.count_of_total, category.remainingCount, category.totalCount
+            )
             binding.tvFlagged.text = category.flaggedCount.toString()
+            // Flags only draw the eye when there is something flagged
+            binding.tvFlagged.alpha = if (category.flaggedCount > 0) 1f else 0.35f
+            binding.progress.max = maxOf(category.totalCount, 1)
+            binding.progress.progress = category.remainingCount
         }
     }
 
