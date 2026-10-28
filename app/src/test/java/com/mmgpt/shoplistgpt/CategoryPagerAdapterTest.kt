@@ -2,6 +2,7 @@ package com.mmgpt.shoplistgpt
 
 import com.mmgpt.shoplistgpt.CategoryPagerAdapter.Companion.SUMMARY_PAGE_ID
 import com.mmgpt.shoplistgpt.CategoryPagerAdapter.Companion.isValidPageId
+import com.mmgpt.shoplistgpt.CategoryPagerAdapter.Companion.pageForCategory
 import com.mmgpt.shoplistgpt.CategoryPagerAdapter.Companion.pageId
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -66,5 +67,23 @@ class CategoryPagerAdapterTest {
         for (row in 1..count) {
             assertEquals((row - 1).toLong(), pageId(row, count, planMode = true))
         }
+    }
+
+    /** Double-tap navigation asks for a category's page; that page must show that category. */
+    @Test
+    fun pageForCategory_opensAPageShowingThatCategory() {
+        val count = 5
+        for (planMode in listOf(false, true)) {
+            for (category in 0 until count) {
+                val page = pageForCategory(category, planMode)
+                assertEquals(category.toLong(), pageId(page, count, planMode))
+            }
+        }
+    }
+
+    @Test
+    fun pageForCategory_skipsTheSummaryPageOnlyInPlanMode() {
+        assertEquals(0, pageForCategory(0, planMode = false))
+        assertEquals(1, pageForCategory(0, planMode = true))
     }
 }

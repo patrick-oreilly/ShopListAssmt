@@ -54,6 +54,10 @@ class CategoryPagerAdapter(
             }
         }
 
+        /** The page showing category [categoryIndex]; Plan mode has its summary page first. */
+        fun pageForCategory(categoryIndex: Int, planMode: Boolean): Int =
+            if (planMode) categoryIndex + 1 else categoryIndex
+
         fun isValidPageId(itemId: Long, categoryCount: Int, planMode: Boolean): Boolean =
             itemId == SUMMARY_PAGE_ID || itemId in 0 until categoryCount
     }
