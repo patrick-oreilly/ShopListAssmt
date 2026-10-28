@@ -30,5 +30,5 @@ fun RecyclerView.setOnRowDoubleTapListener(onRowDoubleTap: (position: Int) -> Bo
 /** Moves the activity's pager to the page showing category [categoryIndex]. */
 fun Fragment.showCategoryPage(categoryIndex: Int, planMode: Boolean) {
     val viewPager = requireActivity().findViewById<ViewPager2>(R.id.viewPager)
-    viewPager.currentItem = CategoryPagerAdapter.pageForCategory(categoryIndex, planMode)
+    viewPager.setCurrentItem(CategoryPagerAdapter.pageForCategory(categoryIndex, planMode), false)
 }
